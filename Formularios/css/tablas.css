@@ -1,0 +1,15 @@
+td{
+    font-family: Verdana;
+    border:1px solid black;
+}
+
+th{
+    font-size: 20px;
+    border:1px solid black;
+}
+
+
+table,th,td{ 
+    padding:0.5vw;
+}
+

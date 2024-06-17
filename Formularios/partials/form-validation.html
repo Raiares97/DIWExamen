@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Formulario de</title>
+</head>
+
+<body>
+    <form action="incidencia.php" method="get">
+        <!-- Campo de texto para el nombre -->
+        <div>
+            <label for="nombre">Usuario: </label>
+            <input type="text" id="nombre" placeholder="Ej: Iago" required autofocus maxlength="100">
+        </div><br />
+
+        <!-- Campo de correo electrónico -->
+        <div>
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" placeholder="Ej:Rodriguez">
+        </div><br />
+        <label for="telf">Telefono: </label>
+        <input type="tel" id="telf" maxlength="9" inputmode="numeric" pattern="\d{1-9}" placeholder="9 números">
+        <div></div><br />
+
+        <!-- Campo de texto para el asunto -->
+        <div>
+            <input type="radio" value="profesor" id="profesor" checked>
+            <label for="profesor">Profesor</label>
+
+            <input type="radio" value="alumno" id="alumno">
+            <label for="alumno">Alumno</label>
+        </div><br />
+
+        <!-- Campo de texto para el mensaje -->
+        <div>
+            <label for="select_ubi">Ambito de la incidencia:</label><br />
+            <select id="select_ubi">
+                <option value="departamento" id="departamento">Departamento</option>
+                <option value="aula" id="aula">Aula</option>
+                <option value="equipo" id="equipo" selected>Equipo</option>
+            </select>
+        </div><br />
+        <div>
+            <label for="nombre_dep">Indica que equipo o departamento: </label>
+            <input type="text" id="nombre_dep">
+        </div>
+
+        <div>
+            <input type="radio" value="low" id="low" checked>
+            <label for="low">Bajo</label>
+
+            <input type="radio" value="medium" id="medium">
+            <label for="medium">Medio</label>
+
+            <input type="radio" value="alto" id="alto">
+            <label for="alto">Alto</label>
+        </div><br />
+
+        <div>
+            <label for="info_incidencia">Información sobre la incidencia:</label><br />
+            <textarea id="info_incidencia" placeholder="Aporta información sobre la incidencia" rows="10"
+                cols="50"></textarea>
+        </div><br />
+        <div>
+            <input type="checkbox" id="msg_mail">
+            <label for="msg_mail">Quiero recibir información en el email</label>
+        </div><br />
+
+        <div>
+            <label for="select_group">Selecciona provincia</label>
+            <select id="select_group">
+                <optgroup label="Galicia">
+                    <option value="Pontevedra" id="Pontevedra">Pontevedra</option>
+                    <option value="Lugo" id="Lugo">Lugo</option>
+                    <option value="Ourense" id="Ourense">Ourense</option>
+                    <option value="Coruña" id="Coruña">Coruña</option>
+                </optgroup>
+
+                <optgroup label="País Vasco">
+                    <option value="Pontevedra" id="Pontevedra">Pontevedra</option>
+                    <option value="Lugo" id="Lugo">Lugo</option>
+                    <option value="Ourense" id="Ourense">Ourense</option>
+                    <option value="Coruña" id="Coruña">Coruña</option>
+                </optgroup>
+            </select>
+        </div><br />
+
+        <div>
+            <label for="file">Copia DNI: </label>
+            <input type="file" id="file" name="file" multiple accept=".jpg,.jpeg,.png,.pdf">
+        </div><br />
+        <!-- Botón de envío -->
+        <div>
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
+
+    <script>
+        // Selecciona todos los elementos de radio
+        const radioButtons = document.querySelectorAll('input[type="radio"]');
+
+        // Almacena el botón de radio seleccionado actualmente
+        let selectedRadio = null;
+
+        // Añade un evento de clic a cada botón de radio
+        radioButtons.forEach(radio => {
+            radio.addEventListener('click', function () {
+                // Si el botón de radio ya está seleccionado, deseleccionarlo
+                if (selectedRadio === this) {
+                    this.checked = false;
+                    selectedRadio = null;
+                } else {
+                    // Si no, actualizar el botón de radio seleccionado
+                    selectedRadio = this;
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
